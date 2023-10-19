@@ -16,8 +16,8 @@ reScan.addEventListener("click", () => {
 function startScanning() {
   scanner = new Html5QrcodeScanner("reader", {
     qrbox: {
-      width: 0.5*reader.clientWidth,
-      height: 0.5*reader.clientWidth    ,
+      width: reader.clientWidth > 250 ? 250 : 0.5*reader.clientWidth,
+      height: reader.clientWidth > 250 ? 250 : 0.5*reader.clientWidth,
     },
     fps: 20,
   });
