@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scanner</title>
-    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+   
+
     <style>
       #reader {
         width: 600px;
@@ -21,40 +22,8 @@
       <button id="reScan" class="hidden">Scan again</button>
     </div>
   </body>
-  <script>
-    const resultDiv = document.getElementById("resultDiv");
-    const res = document.getElementById("res");
-    const reScan = document.getElementById("reScan");
-    let scanner = null;
-
-    startScanning();
-
-    reScan.addEventListener("click", ()=>{
-        reScan.classList.add("hidden");
-        res.innerText = "";
-        startScanning();
-    });
-
-    function startScanning() {
-      scanner = new Html5QrcodeScanner("reader", {
-        qrbox: {
-          width: 250,
-          height: 250,
-        },
-        fps: 20,
-      });
-      scanner.render(success, error);
-    }
-
-    function success(result) {
-      res.innerText = result;
-      scanner.clear();
-      document.getElementById("reader").innerHTML = "";
-      reScan.classList.remove("hidden");
-    }
-
-    function error(err) {
-      console.error(err);
-    }
+  <script src="./html5-qrcode.min.js"></script>
+  <script src="./script.js">
+    
   </script>
 </html>
