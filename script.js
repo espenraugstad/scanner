@@ -1,11 +1,10 @@
-// To use Html5QrcodeScanner (more info below)
-//import {Html5QrcodeScanner} from "html5-qrcode";
-
+const reader = document.getElementById('reader');
 const resultDiv = document.getElementById("resultDiv");
 const res = document.getElementById("res");
 const reScan = document.getElementById("reScan");
 let scanner = null;
 
+console.log(reader.clientWidth);
 startScanning();
 
 reScan.addEventListener("click", () => {
@@ -17,8 +16,8 @@ reScan.addEventListener("click", () => {
 function startScanning() {
   scanner = new Html5QrcodeScanner("reader", {
     qrbox: {
-      width: 250,
-      height: 250,
+      width: 0.5*reader.clientWidth,
+      height: 0.5*reader.clientWidth    ,
     },
     fps: 20,
   });
